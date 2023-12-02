@@ -13,7 +13,7 @@ public class ElfCaloriesReaderSpike {
 
         List<Elf> elfList = new ArrayList<>();
         ClassLoader classLoader =  Thread.currentThread().getContextClassLoader();
-        try (InputStream inputStream = classLoader.getResourceAsStream("./day1-input.txt")) {
+        try (InputStream inputStream = classLoader.getResourceAsStream("./2022-day1-input.txt")) {
             BufferedReader bufferedReader = new BufferedReader(
                     new InputStreamReader(inputStream, StandardCharsets.UTF_8));
 

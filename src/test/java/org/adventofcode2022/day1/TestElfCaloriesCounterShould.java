@@ -28,7 +28,7 @@ public class TestElfCaloriesCounterShould {
     @Test
     void return_24000_max_calories_for_the_given_input(){
         InputStream inputStream =  Thread.currentThread().getContextClassLoader()
-                        .getResourceAsStream("./day1-input.txt");
+                        .getResourceAsStream("2022-day1-input.txt");
 
         BufferedReader bufferedReader = new BufferedReader(
                 new InputStreamReader(inputStream, StandardCharsets.UTF_8));
