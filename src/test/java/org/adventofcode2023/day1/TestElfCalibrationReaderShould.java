@@ -66,4 +66,18 @@ public class TestElfCalibrationReaderShould {
                 equalTo(142));
     }
 
+    @Test
+    void return_149_as_calibration_sum_when_digits_are_given_in_letters() throws IOException {
+        BufferedReader mockeBufferedReader = mock(BufferedReader.class);
+        when(mockeBufferedReader.readLine())
+                .thenReturn("oneaaa0bbb")
+                .thenReturn("2aaa0bbbfivey")
+                .thenReturn("1aaa0bbb5y")
+                .thenReturn("nineaaa0bbbniney")
+                .thenReturn(null);
+        ElfCalibrationReader elfCalibrationReader = new ElfCalibrationReader(mockeBufferedReader);
+        assertThat(elfCalibrationReader.getCalibrationsSum(),
+                equalTo(149));
+    }
+
 }

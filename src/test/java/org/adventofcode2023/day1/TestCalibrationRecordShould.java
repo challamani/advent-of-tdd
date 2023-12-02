@@ -42,4 +42,10 @@ public class TestCalibrationRecordShould {
         CalibrationRecord subject = new CalibrationRecord("9aA8Az7ABu9z");
         assertThat(subject.getCalibrationValue(), equalTo(99));
     }
+
+    @Test
+    void return_99_when_digits_are_spelled_out_in_letters_in_calibration_record(){
+        CalibrationRecord subject = new CalibrationRecord("nineaA8Az7ABuninez");
+        assertThat(subject.getCalibrationValue(), equalTo(99));
+    }
 }
