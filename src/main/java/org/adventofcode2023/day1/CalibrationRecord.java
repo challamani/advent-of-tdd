@@ -6,12 +6,13 @@ import java.util.regex.Pattern;
 
 public class CalibrationRecord {
 
-    private final String record;
+    private String record;
     private final int calibrationValue;
     public CalibrationRecord(String record){
         this.record = record;
         calibrationValue = getValue();
     }
+
     private int getValue(){
         int value=0;
         if(this.record !=null && !this.record.isBlank()) {
@@ -30,4 +31,5 @@ public class CalibrationRecord {
     public int getCalibrationValue(){
         return calibrationValue;
     }
+
 }

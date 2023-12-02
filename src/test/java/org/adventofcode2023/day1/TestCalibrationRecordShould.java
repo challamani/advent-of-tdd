@@ -44,8 +44,9 @@ public class TestCalibrationRecordShould {
     }
 
     @Test
-    void return_99_when_digits_are_spelled_out_in_letters_in_calibration_record(){
+    void return_87_when_digits_are_spelled_out_in_letters_and_sanity_disabled(){
         CalibrationRecord subject = new CalibrationRecord("nineaA8Az7ABuninez");
-        assertThat(subject.getCalibrationValue(), equalTo(99));
+        assertThat(subject.getCalibrationValue(), equalTo(87));
     }
+
 }

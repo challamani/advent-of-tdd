@@ -5,9 +5,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
-
 public class ElfCalibrationReaderSpike {
 
     public static void main(String[] args) throws IOException {
@@ -17,16 +14,21 @@ public class ElfCalibrationReaderSpike {
             BufferedReader bufferedReader  = new BufferedReader(
                     new InputStreamReader(inputStream, StandardCharsets.UTF_8)
             );
-            String line;
-            List<CalibrationRecord> calibrationRecords = new ArrayList<>();
-            while ((line = bufferedReader.readLine()) !=null){
-                calibrationRecords.add(new CalibrationRecord(line));
-            }
-            int sumOfCalibrationRecords  = calibrationRecords.stream()
-                    .mapToInt(CalibrationRecord::getCalibrationValue)
-                    .sum();
-
-            System.out.println(sumOfCalibrationRecords); //54573
+            //System.out.println(">>> part 1 "+part1(bufferedReader)); //part-1, 54573
+            System.out.println(">>> part 2 :"+part2(bufferedReader)); //part-2, 54591
         }
     }
+
+    private static int part1(BufferedReader bufferedReader){
+        ElfCalibrationReader elfCalibrationReader =
+                new ElfCalibrationReader(bufferedReader, false);
+        return elfCalibrationReader.getCalibrationsSum();
+    }
+
+    private static int part2(BufferedReader bufferedReader){
+        ElfCalibrationReader elfCalibrationReader =
+                new ElfCalibrationReader(bufferedReader, true);
+        return elfCalibrationReader.getCalibrationsSum();
+    }
+
 }

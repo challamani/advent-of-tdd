@@ -26,19 +26,22 @@ public class TestElfCalibrationReaderShould {
                 .thenReturn("")
                 .thenReturn(null);
 
-        ElfCalibrationReader elfCalibrationReader = new ElfCalibrationReader(mockeBufferedReader);
+        ElfCalibrationReader elfCalibrationReader =
+                new ElfCalibrationReader(mockeBufferedReader,false);
         assertThat(elfCalibrationReader.getCalibrationsSum(),equalTo(0));
     }
     @Test
-    void throw_npe_when_null_buffered_reader_is_given(){
-        assertThrowsExactly(NullPointerException.class,()->new ElfCalibrationReader(null));
+    void throw_npe_when_null_buffered_reader_is_given() {
+        assertThrowsExactly(NullPointerException.class, () ->
+                new ElfCalibrationReader(null, false));
     }
     @Test
     void throw_runtime_exception_when_buffered_reader_throws_ioe() throws IOException {
         BufferedReader mockeBufferedReader = mock(BufferedReader.class);
         when(mockeBufferedReader.readLine())
                 .thenThrow(new IOException());
-        assertThrowsExactly(RuntimeException.class, () -> new ElfCalibrationReader(mockeBufferedReader));
+        assertThrowsExactly(RuntimeException.class, () ->
+                new ElfCalibrationReader(mockeBufferedReader,false));
     }
 
     @Test
@@ -49,7 +52,8 @@ public class TestElfCalibrationReaderShould {
                 .thenReturn("2aaa0bbb5y")
                 .thenReturn("1aaa0bbb5y")
                 .thenReturn(null);
-        ElfCalibrationReader elfCalibrationReader = new ElfCalibrationReader(mockeBufferedReader);
+        ElfCalibrationReader elfCalibrationReader =
+                new ElfCalibrationReader(mockeBufferedReader, false);
         assertThat(elfCalibrationReader.getCalibrationsSum(),
                 equalTo(50));
     }
@@ -61,7 +65,8 @@ public class TestElfCalibrationReaderShould {
                 .getContextClassLoader()
                 .getResourceAsStream("./2023-day1-input.txt");
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-        ElfCalibrationReader elfCalibrationReader = new ElfCalibrationReader(bufferedReader);
+        ElfCalibrationReader elfCalibrationReader =
+                new ElfCalibrationReader(bufferedReader, false);
         assertThat(elfCalibrationReader.getCalibrationsSum(),
                 equalTo(142));
     }
@@ -75,9 +80,22 @@ public class TestElfCalibrationReaderShould {
                 .thenReturn("1aaa0bbb5y")
                 .thenReturn("nineaaa0bbbniney")
                 .thenReturn(null);
-        ElfCalibrationReader elfCalibrationReader = new ElfCalibrationReader(mockeBufferedReader);
+        ElfCalibrationReader elfCalibrationReader =
+                new ElfCalibrationReader(mockeBufferedReader, true);
         assertThat(elfCalibrationReader.getCalibrationsSum(),
                 equalTo(149));
+    }
+
+    @Test
+    void return_281_as_calibration_sum_for_the_given_buffered_reader() {
+
+        InputStream inputStream = Thread.currentThread()
+                .getContextClassLoader()
+                .getResourceAsStream("./2023-day1-input-part2.txt");
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+        ElfCalibrationReader elfCalibrationReader = new ElfCalibrationReader(bufferedReader, true);
+        assertThat(elfCalibrationReader.getCalibrationsSum(),
+                equalTo(281));
     }
 
 }
