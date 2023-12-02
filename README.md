@@ -2,6 +2,11 @@
 
 A follow along workshop to introduce the idea and concepts of using TDD for [Advent of Code](https://adventofcode.com) problems.
 
+## Code Coverage
+[![code coverage](https://codecov.io/gh/challamani/advent-of-tdd/branch/main/graph/badge.svg)](https://codecov.io/gh/challamani/advent-of-tdd)
+
+![Coverage Tree](https://codecov.io/gh/challamani/advent-of-tdd/graphs/icicle.svg?token=Q6SERJN32M)
+
 ## Introduction
 
 [Advent of Code](https://adventofcode.com/2023/about) is an annual coding contest run by [Eric Wastl](https://github.com/topaz) run during the Christmas advent period each year. The contest posts a new puzzle each day of advent and you're free to use whatever language you like to find a solution to the puzzles.
@@ -34,4 +39,3 @@ The recommended approach for completing the exercises is to start working from e
 ## Let's get started
 
 If you're ready to go, switch to the [exercise-1](https://github.com/jpgough/advent-of-tdd/tree/exercise-1) branch and get moving. Happy coding!
-
