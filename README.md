@@ -5,7 +5,7 @@ A follow along workshop to introduce the idea and concepts of using TDD for [Adv
 ## Code Coverage
 [![code coverage](https://codecov.io/gh/challamani/advent-of-tdd/branch/main/graph/badge.svg)](https://codecov.io/gh/challamani/advent-of-tdd)
 
-![Coverage Tree](https://codecov.io/gh/challamani/advent-of-tdd/graphs/icicle.svg?token=Q6SERJN32M)
+![Coverage Tree](https://codecov.io/gh/challamani/advent-of-tdd/graphs/sunburst.svg?token=Q6SERJN32M)
 
 ## Introduction
 
