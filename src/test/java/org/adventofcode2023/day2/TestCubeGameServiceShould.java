@@ -159,4 +159,14 @@ public class TestCubeGameServiceShould {
         CubeGameService cubeGameService = new CubeGameService(mockBufferedReader);
         assertThat(cubeGameService.getGamesIdsSum(mockedBagCapacity), equalTo(4));
     }
+
+    @Test
+    void return_2286_as_sum_of_the_power_of_cube_sets_of_given_games_input(){
+        InputStream inputStream = Thread.currentThread().getContextClassLoader()
+                .getResourceAsStream("2023-day2-input.txt");
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+
+        CubeGameService cubeGameService = new CubeGameService(bufferedReader);
+        assertThat(cubeGameService.sumOfPowerOfCubeSets(), equalTo(2286l));
+    }
 }

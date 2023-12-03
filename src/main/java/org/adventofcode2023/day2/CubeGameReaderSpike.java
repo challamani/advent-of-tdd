@@ -16,7 +16,9 @@ public class CubeGameReaderSpike {
 
         CubeGameService cubeGameService = new CubeGameService(bufferedReader);
         CubeSet bagCapacity = new CubeSet(12, 13, 14);
-        System.out.println(cubeGameService.getGamesIdsSum(bagCapacity)); //2447
+
+        //System.out.println(cubeGameService.getGamesIdsSum(bagCapacity)); //2447
+        System.out.println(cubeGameService.sumOfPowerOfCubeSets()); //56322
     }
 
 

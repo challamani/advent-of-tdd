@@ -6,10 +6,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
 
 public class CubeGameService {
     private List<CubeGame> cubeGames = new ArrayList<>();
-
+    /**
+     * Problem statement https://adventofcode.com/2023/day/2
+     * */
     public CubeGameService(BufferedReader bufferedReader) {
         try {
 
@@ -63,4 +66,25 @@ public class CubeGameService {
                 .sum();
     }
 
+    /**
+     * what is the fewest number of cubes of each color that could have been in the bag to make the game possible
+     * Find the max cubes in each game sets
+     * Calculate the sum of the power of those sets
+     * */
+    public long sumOfPowerOfCubeSets() {
+        AtomicLong sumOfPowerOfCubeSets = new AtomicLong();
+        cubeGames.stream()
+                .forEach(cubeGame -> {
+                    int maxRedCubes = cubeGame.getCubeSets().stream().mapToInt(CubeSet::getRedCubes)
+                            .max().orElse(1);
+                    int maxGreenCubes = cubeGame.getCubeSets().stream().mapToInt(CubeSet::getGreenCubes)
+                            .max().orElse(1);
+                    int maxBlueCubes = cubeGame.getCubeSets().stream().mapToInt(CubeSet::getBlueCubes)
+                            .max().orElse(1);
+
+                    sumOfPowerOfCubeSets.addAndGet(((long) maxRedCubes * maxGreenCubes * maxBlueCubes));
+                });
+
+        return sumOfPowerOfCubeSets.get();
+    }
 }
