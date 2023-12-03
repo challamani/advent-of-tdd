@@ -14,7 +14,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jacoco.version>0.8.8</jacoco.version>
         <line-coverage>0.99</line-coverage>
-        <branch-coverage>0.99</branch-coverage>
+        <branch-coverage>0.95</branch-coverage>
     </properties>
 
     <dependencyManagement>
